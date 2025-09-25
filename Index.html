@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SkillForge Quiz</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="Quizstyle.css">
+  <style>
+        /* Backgrounds per Q */
+    .bg1::before { background:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e") center/cover }
+    .bg2::before { background:url("https://images.unsplash.com/photo-1506744038136-46273834b3fb") center/cover }
+    .bg3::before { background:url("https://images.unsplash.com/photo-1521791055366-0d553872125f") center/cover }
+    .bg4::before { background:url("https://images.unsplash.com/photo-1523240795612-9a054b0db644") center/cover }
+    .bg5::before { background:url("https://images.unsplash.com/photo-1519389950473-47ba0277781c") center/cover }
+    .bg6::before { background:url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f") center/cover }
+    .bg7::before { background:url("https://images.unsplash.com/photo-1529070538774-1843cb3265df") center/cover }
+    .bg8::before { background:url("https://images.unsplash.com/photo-1513258496099-48168024aec0") center/cover }
+    .bg9::before { background:url("https://images.unsplash.com/photo-1498079022511-d15614cb1c02") center/cover }
+    .bg10::before{ background:url("https://images.unsplash.com/photo-1498050108023-c5249f4df085") center/cover }
+    .bg11::before{ background:url("https://images.unsplash.com/photo-1503676260728-1c00da094a0b") center/cover }
+    .bg12::before{ background:url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d") center/cover }
+  </style>
+</head>
+<body>
+  <!-- Welcome Page -->
+  <div id="welcome" class="page active">
+    <img src="images/SFLogo.jpeg" alt="Logo" style="height:80px;">
+    <h1>SkillForge Quiz</h1>    
+    <div id="loginSection">
+      <input id="playerName" placeholder="Enter name">
+      <input id="playerEmail" placeholder="Enter email">
+      <input type="password" id="playerPass" placeholder="Enter password">
+      <select id="gender">
+        <option value="">Select Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+      <div class="avatars" id="avatarContainer"></div>
+      <button class="btn" onclick="validateLogin()">Start Quiz</button>
+    </div>
+    <button class="btn" onclick="showPage('scorePage')">Leaderboard</button>
+  </div>
+
+  <!-- HUD -->
+  <div id="hud" class="hud">
+    <div class="hearts" id="hearts"><i class='bx bxs-heart'></i><i class='bx bxs-heart'></i><i class='bx bxs-heart'></i></div>
+    <div class="chart-container" style="position:relative;width:100px;height:100px">
+      <canvas id="progressChart"></canvas>
+      <div id="chartPercent">0%</div>
+    </div>
+  </div>
+
+  <!-- Quiz Page -->
+  <div id="quizPage" class="page">
+    <div id="question-number"></div>
+    <div id="question" class="question"></div>
+    <div class="options" id="options"></div>
+    <button class="btn" id="nextBtn" onclick="nextQ()">Next</button>
+    <div class="explanation" id="explanation"></div>
+  </div>
+
+  <!-- Score Page -->
+  <div id="scorePage" class="page">
+    <h1>Quiz Completed 🎉</h1>
+    <div id="finalScore"></div>
+    <div id="appreciation" style="margin: 10px 0; font-size: 20px; font-weight: bold;"></div>
+    <h2>Leaderboard</h2>
+    <ol id="leaderboard"></ol>
+    <button class="btn" onclick="showPage('welcome')">Back</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="Quizscript.js"></script>
+</body>
+</html>
